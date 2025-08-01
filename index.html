@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delhi Cyber Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #00ffe0;
+      --secondary: #1f1f1f;
+      --background: #0a0a0a;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --neon-glow: 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: var(--background);
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(135deg, #00ffe0, #007cff);
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      box-shadow: var(--neon-glow);
+      text-shadow: var(--neon-glow);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #111;
+      border-bottom: 1px solid var(--primary);
+    }
+
+    nav a {
+      color: var(--primary);
+      padding: 14px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: black;
+      background: var(--primary);
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,255,224,0.1)), url('images/cyber-banner.jpg') no-repeat center center/cover;
+      padding: 100px 20px;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: var(--neon-glow);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-shadow: var(--neon-glow);
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 200px;
+      max-width: 240px;
+      box-shadow: 0 0 10px #00ffe055;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: scale(1.05);
+      box-shadow: var(--neon-glow);
+    }
+
+    .service-card i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: var(--card-bg);
+      box-shadow: 0 0 10px #00ffe055;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .price-table th, .price-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .price-table th {
+      background: rgba(0, 255, 224, 0.1);
+      color: var(--primary);
+    }
+
+    .price-table tr:hover {
+      background: rgba(0, 255, 224, 0.05);
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--neon-glow);
+    }
+
+    footer {
+      text-align: center;
+      background: #111;
+      color: white;
+      padding: 20px 0;
+      border-top: 1px solid var(--primary);
+      font-size: 0.9em;
+    }
+
+    #chatbot-button {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: var(--primary);
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: var(--neon-glow);
+      z-index: 999;
+      transition: transform 0.2s;
+    }
+
+    #chatbot-button:hover {
+      transform: scale(1.1);
+    }
+
+    #whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 30px;
+      text-align: center;
+      line-height: 60px;
+      z-index: 999;
+      box-shadow: var(--neon-glow);
+      transition: transform 0.2s;
+    }
+
+    #whatsapp-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Delhi Cyber Cafe</h1>
+  <p>Fast. Reliable. Affordable.</p>
+</header>
+
+<div class="hero">
+  <h2>Your Digital Gateway</h2>
+  <p>Step into the Future of Cyber Services</p>
+</div>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#prices">Prices</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="gov-exams" class="section" style="background: #111; color: white; border-radius: 12px; margin-top: 40px; box-shadow: var(--neon-glow);">
+  <h2>Latest Government Exams</h2>
+  <div style="max-width: 900px; margin: auto;">
+    <div style="padding: 20px; border-bottom: 1px solid #00ffe033;">
+      <h3 style="color: var(--primary); margin-bottom: 8px;">SSC CHSL 2025</h3>
+      <p><strong>Eligibility:</strong> 12th Pass from a recognized board</p>
+      <p><strong>Application Fee:</strong> ₹100 (Women/SC/ST/PH - Exempted)</p>
+    </div>
+    <div style="padding: 20px; border-bottom: 1px solid #00ffe033;">
+      <h3 style="color: var(--primary); margin-bottom: 8px;">Delhi Police Constable 2025</h3>
+      <p><strong>Eligibility:</strong> 12th Pass; Male & Female both eligible</p>
+      <p><strong>Application Fee:</strong> ₹100 (SC/ST/Female - Exempted)</p>
+    </div>
+    <div style="padding: 20px; border-bottom: 1px solid #00ffe033;">
+      <h3 style="color: var(--primary); margin-bottom: 8px;">CTET January 2025</h3>
+      <p><strong>Eligibility:</strong> D.El.Ed/B.Ed with Graduation (varies by level)</p>
+      <p><strong>Application Fee:</strong> ₹1000 (Paper I or II), ₹1200 (Both)</p>
+    </div>
+    <div style="padding: 20px;">
+      <h3 style="color: var(--primary); margin-bottom: 8px;">Railway RRB Group D 2025</h3>
+      <p><strong>Eligibility:</strong> 10th Pass or ITI from NCVT/SCVT</p>
+      <p><strong>Application Fee:</strong> ₹500 (₹250 for SC/ST/ExS/Female/Minorities)</p>
+    </div>
+  </div>
+  <p style="text-align: center; margin-top: 20px; color: #ccc;">Visit us to apply for the latest government exams online with expert assistance.</p>
+</section>
+
+
+<section id="about" class="section" style="background-color: #f1f1f1; padding: 40px 20px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <h2 style="text-align: center; color: #333;">About Delhi Online</h2>
+  <p style="max-width: 800px; margin: 20px auto; font-size: 17px; line-height: 1.8; color: #444;">
+    Welcome to <strong>Delhi Online Cyber Café</strong> – your one-stop destination for all online form filling, application services, and digital assistance needs. 
+    Located in the heart of <strong>Ashok Nagar, Shahdara</strong>, we provide fast, reliable, and affordable services to students, job seekers, and the general public.
+  </p>
+  <p style="max-width: 800px; margin: 20px auto; font-size: 17px; line-height: 1.8; color: #444;">
+    Whether it's applying for government exams, booking appointments, printing documents, or creating essential IDs like PAN or Aadhar – we've got you covered. 
+    Our expert team ensures complete guidance and support so that you never face a technical hassle.
+  </p>
+  <p style="max-width: 800px; margin: 20px auto; font-size: 17px; line-height: 1.8; color: #444;">
+    Visit us today and experience the convenience of smart digital services with a personal touch!
+  </p>
+</section>
+
+<section id="services" class="section">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="service-card" data-price="₹6/page"><i class="fas fa-print"></i><div><strong>Printing (B/W)</strong></div></div>
+    <div class="service-card" data-price="₹10/page"><i class="fas fa-print"></i><div><strong>Printing (Color)</strong></div></div>
+    <div class="service-card" data-price="₹2/page"><i class="fas fa-copy"></i><div><strong>Photocopy</strong></div></div>
+    <div class="service-card" data-price="₹5/page"><i class="fas fa-copy"></i><div><strong>Scanning</strong></div></div>
+    <div class="service-card" data-price="₹30 (6 photos)"><i class="fas fa-camera"></i><div><strong>Passport Photo</strong></div></div>
+    <div class="service-card" data-price="₹200"><i class="fas fa-file-alt"></i><div><strong>Form Filling</strong></div></div>
+    <div class="service-card" data-price="₹50"><i class="fas fa-globe"></i><div><strong>Online Applications</strong></div></div>
+    <div class="service-card" data-price="₹100-200"><i class="fas fa-train"></i><div><strong>Train Ticket Booking</strong></div></div>
+    <div class="service-card" data-price="₹200"><i class="fas fa-id-card"></i><div><strong>Pan Card (New)</strong></div></div>
+    <div class="service-card" data-price="₹5000"><i class="fas fa-id-card-alt"></i><div><strong>Ration Card (New)</strong></div></div>
+    <div class="service-card" data-price="₹350-500"><i class="fas fa-fingerprint"></i><div><strong>Aadhar Correction</strong></div></div>
+    <div class="service-card" data-price="₹300"><i class="fas fa-vote-yea"></i><div><strong>Voter ID (New)</strong></div></div>
+    <div class="service-card" data-price="₹10-50"><i class="fas fa-bolt"></i><div><strong>Electricity Bill</strong></div></div>
+    <div class="service-card" data-price="₹150"><i class="fas fa-id-badge"></i><div><strong>PAN Card (Update)</strong></div></div>
+    <div class="service-card" data-price="₹800-1500"><i class="fas fa-car"></i><div><strong>Driving License</strong></div></div>
+    <div class="service-card" data-price="₹500"><i class="fas fa-motorcycle"></i><div><strong>Learning License</strong></div></div>
+
+  </div>
+<section id="admission-banner" class="section">
+  <h2>Important Notices</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+    <div style="flex: 1 1 200px; max-width: 250px;">
+      <img src="images/admission.jpg" alt="SOL-DU Admission 2025-26"
+        style="width: 100%; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,224,0.2);">
+    </div>
+    <div style="flex: 1 1 200px; max-width: 250px;">
+      <img src="images/birth.jpg" alt="Birth Certificate Poster"
+        style="width: 100%; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,224,0.2);">
+    </div>
+    <div style="flex: 1 1 200px; max-width: 250px;">
+      <img src="images/water.jpg" alt="Water Connection"
+        style="width: 100%; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,224,0.2);">
+    </div>
+    <div style="flex: 1 1 200px; max-width: 250px;">
+      <img src="images/electricity.jpg" alt="New Electricity Connection"
+        style="width: 100%; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,224,0.2);">
+    </div>
+    <div style="flex: 1 1 200px; max-width: 250px;">
+      <img src="images/mcd.jpg" alt="House Tax"
+        style="width: 100%; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,224,0.2);">
+    </div>
+    <div style="flex: 1 1 200px; max-width: 250px;">
+      <img src="images/cyber-banner.jpg" alt="Cyber Services"
+        style="width: 100%; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,224,0.2);">
+    </div>
+  </div>
+</section>
+
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <p><strong>Address:</strong> B-225/4 Street No-7, Ashok Nagar, Shahdara, Delhi 110093</p>
+  <p><strong>Phone:</strong> 8076405103</p>
+  <p><strong>Hours:</strong> 9 AM - 9 PM Daily</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Delhi Cyber Cafe. All rights reserved.</p>
+</footer>
+
+<!-- Chat Button -->
+<button id="chatbot-button" title="Chat with us">💬</button>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/918076405103?text=Hello%20Delhi%20Cyber%20Cafe%2C%20I%20have%20a%20query." target="_blank" id="whatsapp-button" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- JS for Showing Prices on Click -->
+<script>
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const price = card.getAttribute('data-price');
+      const name = card.textContent.trim();
+      alert(`${name}\nPrice: ${price}`);
+    });
+  });1
+</script>
+
+</body>
+</html>
