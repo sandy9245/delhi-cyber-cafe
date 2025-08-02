@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -429,6 +430,14 @@
     });
   };
 </script>
+<!-- Hidden Exam Editor -->
+<div id="editContainer" style="display:none; position:fixed; top:50px; left:50%; transform:translateX(-50%); width:90%; max-width:600px; background:white; border:2px solid #ccc; padding:20px; z-index:9999; box-shadow:0 0 15px rgba(0,0,0,0.3);">
+  <h3>Edit Government Exam List</h3>
+  <textarea id="examEditor" rows="10" style="width:100%;"></textarea>
+  <br><br>
+  <button onclick="saveExams()">💾 Save Exams</button>
+  <button onclick="document.getElementById('editContainer').style.display='none'">❌ Close</button>
+</div>
 
 </body>
 </html>  
