@@ -208,22 +208,28 @@
   font-weight: 700;
 }
 
-.exam-marquee-container {
-  height: 180px;
+.exam-marquee {
+  height: 120px;
   overflow: hidden;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  border: 2px solid #ffcc00;
+  position: relative;
+  background: #fff8e1;
+  padding: 15px;
+  font-size: 18px;
+  border-left: 5px solid #f39c12;
+  animation: scrollExams 10s linear infinite;
 }
 
-.exam-marquee p {
-  font-size: 1.2rem;
-  color: #34495e;
-  margin: 10px 0;
-  font-weight: 500;
-  animation: scrollExams 15s linear infinite;
+#examContent {
+  display: flex;
+  flex-direction: column;
+  animation: scrollExams 10s linear infinite;
 }
+
+@keyframes scrollExams {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
 
 
 
@@ -263,7 +269,6 @@
     <div class="exam-marquee" id="examMarquee">
   <div id="examContent"></div>
 </div>
-  </div>
 </section>
 
 <section id="services" class="section">
@@ -396,16 +401,22 @@
     "Delhi Police Constable Form 2025 Active"
     
   ];
+function loadExams() {
+  const stored = localStorage.getItem('examList');
+  const examList = stored ? JSON.parse(stored) : defaultExams;
+  const contentDiv = document.getElementById('examContent');
+  const editor = document.getElementById('examEditor');
 
-  function loadExams() {
-    const stored = localStorage.getItem('examList');
-    const examList = stored ? JSON.parse(stored) : defaultExams;
-    const marquee = document.getElementById('examMarquee');
-    const editor = document.getElementById('examEditor');
+  if (contentDiv) {
+    // Duplicate exam list to allow infinite scroll effect
+    const repeatedList = examList.concat(examList);
+    contentDiv.innerHTML = repeatedList.map(item => `<p>${item}</p>`).join('');
+  }
 
-    marquee.innerHTML = examList.map(line => `<p>${line}</p>`).join('');
+  if (editor) {
     editor.value = examList.join('\n');
   }
+}
 
   function saveExams() {
     const editor = document.getElementById('examEditor');
