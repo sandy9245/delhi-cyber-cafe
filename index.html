@@ -18,103 +18,6 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-<!-- Admin Panel -->
-<div id="adminPanel" style="display:none; position:fixed; inset:0; background:#000000aa; z-index:9999; justify-content:center; align-items:center;">
-  <div style="background:#fff; padding:20px; border-radius:10px; width:90%; max-width:500px; box-shadow:0 0 20px rgba(0,0,0,0.3); position:relative;">
-    <button onclick="toggleAdmin()" style="position:absolute; top:10px; right:10px;">✖</button>
-    <h2 style="margin-bottom:10px; color:#333;">Admin Panel - Daily Income</h2>
-
-    <form onsubmit="addEntry(event)">
-      <label>Service:</label>
-      <select id="service">
-        <option>Printout</option>
-        <option>Form</option>
-        <option>PAN Card</option>
-        <option>Photocopy</option>
-        <option>Update</option>
-      </select><br><br>
-
-      <label>Amount (₹):</label>
-      <input type="number" id="amount" required><br><br>
-
-      <label>Note (optional):</label>
-      <input type="text" id="note"><br><br>
-
-      <button type="submit">Add Entry</button>
-    </form>
-
-    <hr>
-    <h3>Today's Total: ₹<span id="todayTotal">0</span></h3>
-    <h4>This Week: ₹<span id="weekTotal">0</span></h4>
-    <button onclick="exportCSV()">📥 Export CSV</button>
-    <button onclick="clearData()">🗑 Clear All (⚠)</button>
-  </div>
-</div>
-
-<script>
-  let entries = JSON.parse(localStorage.getItem("incomeEntries") || "[]");
-
-  function toggleAdmin() {
-    const panel = document.getElementById("adminPanel");
-    panel.style.display = panel.style.display === "flex" ? "none" : "flex";
-    updateSummary();
-  }
-
-  document.addEventListener("keydown", (e) => {
-    if (e.ctrlKey && e.shiftKey && e.key === "A") {
-      toggleAdmin();
-    }
-  });
-
-  function addEntry(e) {
-    e.preventDefault();
-    const service = document.getElementById("service").value;
-    const amount = parseFloat(document.getElementById("amount").value);
-    const note = document.getElementById("note").value;
-    const date = new Date().toISOString();
-
-    entries.push({ date, service, amount, note });
-    localStorage.setItem("incomeEntries", JSON.stringify(entries));
-    e.target.reset();
-    updateSummary();
-  }
-
-  function updateSummary() {
-    const today = new Date().toISOString().split("T")[0];
-    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-    const todayTotal = entries
-      .filter(e => e.date.startsWith(today))
-      .reduce((sum, e) => sum + e.amount, 0);
-    const weekTotal = entries
-      .filter(e => new Date(e.date) >= weekAgo)
-      .reduce((sum, e) => sum + e.amount, 0);
-
-    document.getElementById("todayTotal").textContent = todayTotal;
-    document.getElementById("weekTotal").textContent = weekTotal;
-  }
-
-  function exportCSV() {
-    const csv = ["Date,Service,Amount,Note"];
-    entries.forEach(e => {
-      csv.push(`${new Date(e.date).toLocaleString()},${e.service},${e.amount},${e.note || ""}`);
-    });
-    const blob = new Blob([csv.join("\n")], { type: "text/csv" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "income_report.csv";
-    a.click();
-  }
-
-  function clearData() {
-    if (confirm("Clear all records? This cannot be undone.")) {
-      localStorage.removeItem("incomeEntries");
-      entries = [];
-      updateSummary();
-    }
-  }
-</script>
-
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -325,11 +228,22 @@
   </div>
 </section>
 
-<section id="live-feed" class="section">
-  <h2>📢 Live Sarkari Exam Updates</h2>
-  <iframe src="https://www.sarkariresult.com/" width="100%" height="400" style="border: 1px solid #ccc; border-radius: 8px;"></iframe>
-  <p style="text-align:center; font-size: 0.9em; color: gray;">Source: SarkariResult.com</p>
+
+
+<section class="section" id="extra-images">
+  <h2>Extra Photos</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+    <img src="images/birth.jpg" alt="Extra Image 1" style="width: 200px; border-radius: 10px;">
+    <img src="images/mcd.jpg" alt="Extra Image 2" style="width: 200px; border-radius: 10px;">
+    <img src="images/water.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
+    <img src="images/housetax.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
+    <img src="images/learning.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
+    <img src="images/licence.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
+     <img src="images/electricity.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
+  </div>
 </section>
+
+
 
 <section id="contact" class="section">
   <h2>Contact Us</h2>
@@ -339,7 +253,7 @@
     <strong>Hours:</strong> 9 AM - 9 PM Daily
   </p>
 </section>
-<!-- QUICK HIGHLIGHTS -->
+
 <section class="section" style="background: #e9f0fb;">
   <h2>At a Glance</h2>
   <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; text-align: center;">
@@ -350,7 +264,6 @@
   </div>
 </section>
 
-<!-- WHY CHOOSE US -->
 <section class="section">
   <h2>Why Choose Delhi Cyber Cafe?</h2>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
@@ -361,17 +274,6 @@
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="section" id="gallery">
-  <h2>Our Workspace</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-    <img src="images/inside1.jpg" alt="Cyber Cafe View 1" style="width: 200px; border-radius: 10px;">
-    <img src="images/inside2.jpg" alt="Cyber Cafe View 2" style="width: 200px; border-radius: 10px;">
-    <img src="images/inside3.jpg" alt="Cyber Cafe View 3" style="width: 200px; border-radius: 10px;">
-  </div>
-</section>
-
-<!-- CUSTOMER REVIEWS -->
 <section class="section" style="background: #fefefe;">
   <h2>Customer Feedback</h2>
   <div style="display: flex; flex-direction: column; gap: 20px; max-width: 700px; margin: auto;">
@@ -381,7 +283,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="section">
   <h2>FAQs</h2>
   <div style="max-width: 800px; margin: auto;">
@@ -395,13 +296,108 @@
   <p>&copy; 2025 Delhi Cyber Cafe. All rights reserved.</p>
 </footer>
 
-<!-- Chat & WhatsApp Buttons -->
 <button id="chatbot-button" title="Chat with us">💬</button>
 <a href="https://wa.me/918076405103?text=Hello%20Delhi%20Cyber%20Cafe%2C%20I%20have%20a%20query." target="_blank" id="whatsapp-button" title="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
+<!-- Admin Panel -->
+<div id="adminPanel" style="display:none; position:fixed; inset:0; background:#000000aa; z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:20px; border-radius:10px; width:90%; max-width:500px; box-shadow:0 0 20px rgba(0,0,0,0.3); position:relative;">
+    <button onclick="toggleAdmin()" style="position:absolute; top:10px; right:10px;">✖</button>
+    <h2 style="margin-bottom:10px; color:#333;">Admin Panel - Daily Income</h2>
+
+    <form onsubmit="addEntry(event)">
+      <label>Service:</label>
+      <select id="service">
+        <option>Printout</option>
+        <option>Form</option>
+        <option>PAN Card</option>
+        <option>Photocopy</option>
+        <option>Update</option>
+      </select><br><br>
+
+      <label>Amount (₹):</label>
+      <input type="number" id="amount" required><br><br>
+
+      <label>Note (optional):</label>
+      <input type="text" id="note"><br><br>
+
+      <button type="submit">Add Entry</button>
+    </form>
+
+    <hr>
+    <h3>Today's Total: ₹<span id="todayTotal">0</span></h3>
+    <h4>This Week: ₹<span id="weekTotal">0</span></h4>
+    <button onclick="exportCSV()">📥 Export CSV</button>
+    <button onclick="clearData()">🗑 Clear All (⚠)</button>
+  </div>
+</div>
+
 <script>
+  let entries = JSON.parse(localStorage.getItem("incomeEntries") || "[]");
+
+  function toggleAdmin() {
+    const panel = document.getElementById("adminPanel");
+    panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+    updateSummary();
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === "A") {
+      toggleAdmin();
+    }
+  });
+
+
+  function addEntry(e) {
+    e.preventDefault();
+    const service = document.getElementById("service").value;
+    const amount = parseFloat(document.getElementById("amount").value);
+    const note = document.getElementById("note").value;
+    const date = new Date().toISOString();
+
+    entries.push({ date, service, amount, note });
+    localStorage.setItem("incomeEntries", JSON.stringify(entries));
+    e.target.reset();
+    updateSummary();
+  }
+
+  function updateSummary() {
+    const today = new Date().toISOString().split("T")[0];
+    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const todayTotal = entries
+      .filter(e => e.date.startsWith(today))
+      .reduce((sum, e) => sum + e.amount, 0);
+    const weekTotal = entries
+      .filter(e => new Date(e.date) >= weekAgo)
+      .reduce((sum, e) => sum + e.amount, 0);
+
+    document.getElementById("todayTotal").textContent = todayTotal;
+    document.getElementById("weekTotal").textContent = weekTotal;
+  }
+
+  function exportCSV() {
+    const csv = ["Date,Service,Amount,Note"];
+    entries.forEach(e => {
+      csv.push(`${new Date(e.date).toLocaleString()},${e.service},${e.amount},${e.note || ""}`);
+    });
+    const blob = new Blob([csv.join("\n")], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "income_report.csv";
+    a.click();
+  }
+
+  function clearData() {
+    if (confirm("Clear all records? This cannot be undone.")) {
+      localStorage.removeItem("incomeEntries");
+      entries = [];
+      updateSummary();
+    }
+  }
+
   const defaultExams = [
     "📢 SSC CGL 2025 Registration Open!",
     "📢 Delhi Police Constable Exam 2025 – Last Date: 10 Aug!",
@@ -446,5 +442,8 @@
   window.addEventListener('load', () => {
     loadExams();
   });
+
 </script>
+
+</body>
 </html>
