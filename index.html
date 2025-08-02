@@ -168,6 +168,64 @@
       padding: 20px 10px;
       margin-top: 50px;
     }
+.#exams {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+#exams {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.exam-highlight {
+  max-width: 900px;
+  width: 100%;
+  background: linear-gradient(135deg, #fff3cd, #ffeeba);
+  border: 3px dashed #ff9800;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  padding: 30px;
+  text-align: center;
+  animation: pulseHighlight 3s infinite;
+}
+
+@keyframes pulseHighlight {
+  0% { box-shadow: 0 0 0 rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(255, 152, 0, 0.4); }
+  100% { box-shadow: 0 0 0 rgba(0, 0, 0, 0.1); }
+}
+
+.exam-highlight h2 {
+  font-size: 2rem;
+  color: #d35400;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.exam-marquee-container {
+  height: 180px;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  border: 2px solid #ffcc00;
+}
+
+.exam-marquee p {
+  font-size: 1.2rem;
+  color: #34495e;
+  margin: 10px 0;
+  font-weight: 500;
+  animation: scrollExams 15s linear infinite;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -198,6 +256,17 @@
   <p style="text-align: center;">Welcome to Delhi Cyber Cafe, your one-stop destination for high-speed internet, printing, scanning, and more. Open daily from 9 AM to 9 PM.</p>
 </section>
 
+<section id="exams">
+  <div class="exam-highlight">
+    <h2>📢 Latest Government Exam Forms</h2>
+    <div class="exam-marquee-container">
+      <div class="exam-marquee" id="examMarquee">
+        <!-- Exam list will appear here -->
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="services" class="section">
   <h2>Our Services</h2>
   <div class="services">
@@ -216,20 +285,6 @@
   </div>
 </section>
 
-<section id="exams" class="section">
-  <h2>Latest Government Exams</h2>
-  <div class="exam-marquee-container" style="height: 120px; overflow: hidden; position: relative; background: #ffffff; color: #333; border: 1px solid #ccc; border-radius: 8px; padding: 10px 20px;">
-    <div class="exam-marquee" id="examMarquee" style="display: flex; flex-direction: column; animation: scrollExams 10s linear infinite;"></div>
-  </div>
-  <div id="editContainer" style="margin-top: 30px; display: none;">
-    <h3 style="text-align:center; color: var(--primary);">✏️ Edit Exam List</h3>
-    <textarea id="examEditor" style="width: 100%; height: 150px; padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
-    <button onclick="saveExams()" style="margin-top: 10px; padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer;">Save</button>
-  </div>
-</section>
-
-
-
 <section class="section" id="extra-images">
   <h2>Extra Photos</h2>
   <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
@@ -242,8 +297,6 @@
      <img src="images/electricity.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
   </div>
 </section>
-
-
 
 <section id="contact" class="section">
   <h2>Contact Us</h2>
@@ -335,75 +388,12 @@
 </div>
 
 <script>
-  let entries = JSON.parse(localStorage.getItem("incomeEntries") || "[]");
-
-  function toggleAdmin() {
-    const panel = document.getElementById("adminPanel");
-    panel.style.display = panel.style.display === "flex" ? "none" : "flex";
-    updateSummary();
-  }
-
-  document.addEventListener("keydown", (e) => {
-    if (e.ctrlKey && e.shiftKey && e.key === "A") {
-      toggleAdmin();
-    }
-  });
-
-
-  function addEntry(e) {
-    e.preventDefault();
-    const service = document.getElementById("service").value;
-    const amount = parseFloat(document.getElementById("amount").value);
-    const note = document.getElementById("note").value;
-    const date = new Date().toISOString();
-
-    entries.push({ date, service, amount, note });
-    localStorage.setItem("incomeEntries", JSON.stringify(entries));
-    e.target.reset();
-    updateSummary();
-  }
-
-  function updateSummary() {
-    const today = new Date().toISOString().split("T")[0];
-    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-    const todayTotal = entries
-      .filter(e => e.date.startsWith(today))
-      .reduce((sum, e) => sum + e.amount, 0);
-    const weekTotal = entries
-      .filter(e => new Date(e.date) >= weekAgo)
-      .reduce((sum, e) => sum + e.amount, 0);
-
-    document.getElementById("todayTotal").textContent = todayTotal;
-    document.getElementById("weekTotal").textContent = weekTotal;
-  }
-
-  function exportCSV() {
-    const csv = ["Date,Service,Amount,Note"];
-    entries.forEach(e => {
-      csv.push(`${new Date(e.date).toLocaleString()},${e.service},${e.amount},${e.note || ""}`);
-    });
-    const blob = new Blob([csv.join("\n")], { type: "text/csv" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "income_report.csv";
-    a.click();
-  }
-
-  function clearData() {
-    if (confirm("Clear all records? This cannot be undone.")) {
-      localStorage.removeItem("incomeEntries");
-      entries = [];
-      updateSummary();
-    }
-  }
-
   const defaultExams = [
-    "📢 SSC CGL 2025 Registration Open!",
-    "📢 Delhi Police Constable Exam 2025 – Last Date: 10 Aug!",
-    "📢 UPSC NDA II Admit Card Released!",
-    "📢 CTET 2025 Exam Scheduled for 25 Aug!",
-    "📢 Railway RRB Group D Notification Coming Soon!"
+    "SSC CGL 2025 Notification Released",
+    "UPSC Prelims 2025 Form Out Now",
+    "IBPS Clerk Recruitment 2025 Open",
+    "CTET January 2025 Online Form Available",
+    "Delhi Police Constable Form 2025 Active"
   ];
 
   function loadExams() {
@@ -411,39 +401,34 @@
     const examList = stored ? JSON.parse(stored) : defaultExams;
     const marquee = document.getElementById('examMarquee');
     const editor = document.getElementById('examEditor');
+
     marquee.innerHTML = examList.map(line => `<p>${line}</p>`).join('');
     editor.value = examList.join('\n');
   }
 
   function saveExams() {
-    const newText = document.getElementById('examEditor').value;
-    const lines = newText.split('\n').filter(line => line.trim() !== '');
-    localStorage.setItem('examList', JSON.stringify(lines));
+    const editor = document.getElementById('examEditor');
+    const updatedList = editor.value.split('\n').filter(Boolean);
+    localStorage.setItem('examList', JSON.stringify(updatedList));
     loadExams();
     alert("✅ Exam list updated!");
   }
 
-  document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const price = card.getAttribute('data-price');
-      const name = card.textContent.trim();
-      alert(`${name}\nPrice: ${price}`);
-    });
-  });
-
-  window.addEventListener('keydown', function (e) {
-    if (e.ctrlKey && e.key === 'e') {
-      e.preventDefault();
-      const editorBox = document.getElementById('editContainer');
-      editorBox.style.display = editorBox.style.display === 'none' ? 'block' : 'none';
-    }
-  });
-
-  window.addEventListener('load', () => {
+  // ✅ Wait until entire page loads before attaching shortcut
+  window.onload = function () {
     loadExams();
-  });
 
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey && (e.key === 'e' || e.key === 'E')) {
+        e.preventDefault();
+        const editorBox = document.getElementById('editContainer');
+        if (editorBox) {
+          editorBox.style.display = (editorBox.style.display === 'none' || editorBox.style.display === '') ? 'block' : 'none';
+        }
+      }
+    });
+  };
 </script>
 
 </body>
-</html>
+</html>  
