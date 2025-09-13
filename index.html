@@ -1,515 +1,527 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Delhi Cyber Cafe Shahdara - Online Form Filling & Exam Forms</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Delhi Cyber Cafe in Shahdara offers online form filling, exam form assistance, and fast digital services. Visit our cyber cafe near you for hassle-free services.">
-  <meta name="keywords" content="cyber cafe in Shahdara, online form filling Delhi, exam form center near me, digital services Delhi">
-  <meta name="author" content="Delhi Cyber Cafe">
+  <!-- SEO Meta Tags (single set) -->
+  <meta name="description" content="Delhi Cyber Cafe in Shahdara offers online form filling, exam form assistance, PAN/Aadhaar/Voter forms, printing, scanning and more. Open daily 9 AM - 9 PM." />
+  <meta name="keywords" content="cyber cafe shahdara, online form filling delhi, exam forms shahdara, PAN Aadhar services, Delhi Cyber Cafe" />
+  <meta name="author" content="Delhi Cyber Cafe" />
 
-  <!-- Existing styles/scripts here -->
-</head>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous" />
 
-
-<meta name="description" content="Delhi Cyber Cafe in Shahdara offers online form filling, exam form assistance, and fast digital services. Visit our cyber cafe near you for hassle-free services.">
-<meta name="keywords" content="cyber cafe in Shahdara, online form filling Delhi, exam form center near me, digital services Delhi">
-<meta name="author" content="Delhi Cyber Cafe">
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Delhi Cyber Cafe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
       --primary: #0056b3;
-      --secondary: #f5f5f5;
       --accent: #1a73e8;
-      --text-dark: #222;
-      --text-light: #666;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --muted: #666;
     }
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background: var(--secondary);
-      color: var(--text-dark);
-    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    html,body { margin:0; padding:0; height:100%; font-family: 'Roboto', sans-serif; background: var(--bg); color:#222; }
+
     header {
-      background-color: white;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid #ccc;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 12px 18px;
+      position:sticky;
+      top:0;
+      z-index:1000;
     }
-    header i {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-right: 10px;
-    }
-    header h1 {
-      font-size: 1.8rem;
-      margin: 0;
-      color: var(--primary);
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: var(--primary);
-    }
-    nav a {
-      color: white;
-      padding: 14px 20px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    nav a:hover {
-      background: #003f88;
-    }
+    header .brand { display:flex; align-items:center; gap:10px; }
+    header i.favicon { font-size: 1.8rem; color:var(--primary); }
+    header h1 { margin:0; font-size:1.2rem; color:var(--primary); }
+    header .admin-open { background:transparent; border:1px solid var(--primary); color:var(--primary); padding:6px 10px; border-radius:6px; cursor:pointer; font-weight:600; }
+    nav { display:flex; justify-content:center; gap:6px; background:var(--primary); padding:8px 10px; flex-wrap:wrap; }
+    nav a { color:white; text-decoration:none; padding:10px 14px; display:inline-flex; gap:8px; align-items:center; font-weight:500; }
+    nav a:hover { background:#00438a; border-radius:6px; }
+
+    /* HERO */
     .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-              url('images/cyber-banner.jpg') no-repeat center center/cover;
-  position: relative;
-  padding: 120px 20px;
-  text-align: center;
-  color: white;
-  border-bottom: 5px solid var(--accent);
-}
-
-.hero h2 {
-  font-size: 3rem;
-  margin: 0 0 15px;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-}
-
-.hero p {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-}
-
-.hero a {
-  display: inline-block;
-  background: var(--accent);
-  color: white;
-  padding: 15px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transition: background 0.3s, transform 0.3s;
-}
-
-.hero a:hover {
-  background: #0f5ace;
-  transform: scale(1.05);
-}
-
-    .section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+                  url('images/cyber-banner.jpg') center/cover no-repeat;
+      padding: 100px 16px;
+      text-align:center;
+      color:#fff;
+      margin-bottom:10px;
+      border-bottom:5px solid var(--accent);
     }
-    h2 {
-      text-align: center;
-      color: var(--primary);
-      margin-bottom: 30px;
-    }
+    .hero h2 { font-size:2.4rem; margin:0 0 8px; text-shadow: 1px 1px 6px rgba(0,0,0,0.45); }
+    .hero p { font-size:1.1rem; margin:0 0 18px; text-shadow: 1px 1px 4px rgba(0,0,0,0.35); }
+    .hero .cta { background:var(--accent); color:#fff; padding:12px 22px; border-radius:28px; text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,0.18); display:inline-block; }
+
+    .section { max-width:1100px; margin:28px auto; padding:18px; }
+
     .services {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      justify-content:center;
     }
     .service-card {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      width: 220px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      cursor: pointer;
+      background:var(--card);
+      width:220px;
+      padding:18px;
+      border-radius:10px;
+      text-align:center;
+      box-shadow: 0 6px 18px rgba(16,24,40,0.04);
+      transition: transform .22s ease, box-shadow .22s ease;
+      cursor:default;
     }
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-    .service-card i {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
+    .service-card:hover { transform:translateY(-6px); box-shadow:0 18px 40px rgba(16,24,40,0.08); }
+    .service-card i { font-size:1.8rem; color:var(--primary); margin-bottom:8px; }
+
+    /* Exams marquee highlight */
+    .exam-highlight { max-width:900px; margin:0 auto; background:linear-gradient(135deg,#fff7e6,#fff1cc); border-radius:12px; border:3px dashed #ff9800; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08); }
+    .exam-highlight h3 { margin:0 0 12px; color:#d35400; font-size:1.2rem; font-weight:700; text-align:center; }
+    .exam-marquee { height:120px; overflow:hidden; position:relative; padding:8px 12px; background:#fff8e1; border-left:5px solid #f39c12; border-radius:8px; }
+    #examContent { display:flex; flex-direction:column; gap:8px; animation: scrollExams 10s linear infinite; }
     @keyframes scrollExams {
       0% { transform: translateY(0); }
-      100% { transform: translateY(-100%); }
+      100% { transform: translateY(-50%); } /* content duplicated in JS for smooth scroll */
     }
-    #chatbot-button, #whatsapp-button {
-      position: fixed;
-      z-index: 999;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 30px;
-      text-align: center;
-      line-height: 60px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+    /* Guides grid & cards */
+    .guides-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:12px; }
+    .guide-card { background:var(--card); padding:16px; border-radius:10px; box-shadow:0 6px 18px rgba(16,24,40,0.04); text-align:center; transition:transform .16s; }
+    .guide-card:hover{ transform:translateY(-6px); }
+
+    /* PDF download buttons */
+    .downloads { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:12px; }
+    .downloads a { display:inline-block; padding:12px 18px; border-radius:8px; text-decoration:none; background:#fff; border:2px solid #28a745; color:#28a745; font-weight:700; }
+
+    /* Extra images */
+    .extra-images { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:12px; }
+    .extra-images img { width:200px; border-radius:10px; object-fit:cover; display:block; }
+
+    /* contact & at-a-glance */
+    .contact p { text-align:center; line-height:1.6; }
+    .at-glance { display:flex; flex-wrap:wrap; gap:22px; justify-content:center; text-align:center; }
+
+    blockquote { background:#fff; padding:12px 16px; border-radius:8px; margin:8px 0; box-shadow:0 4px 12px rgba(0,0,0,0.04); }
+
+    footer { background:#003f88; color:#fff; text-align:center; padding:18px 12px; margin-top:28px; }
+
+    /* Floating buttons */
+    #chatbot-button, #whatsapp-button { position:fixed; z-index:999; border:none; border-radius:50%; width:60px; height:60px; font-size:28px; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.18); }
+    #chatbot-button { right:20px; bottom:100px; background:var(--accent); color:#fff; }
+    #whatsapp-button { right:20px; bottom:20px; background:#25d366; color:#fff; text-decoration:none; display:flex; align-items:center; justify-content:center; }
+
+    /* Admin panel modal (hidden by default) */
+    #adminPanel { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; align-items:center; justify-content:center; padding:20px; }
+    #adminPanel .panel { width:100%; max-width:600px; background:#fff; border-radius:10px; padding:18px; box-shadow:0 30px 60px rgba(0,0,0,0.4); position:relative; }
+    #adminPanel .panel h2 { margin:0 0 8px; }
+    #adminPanel .close-btn { position:absolute; right:12px; top:12px; background:transparent; border:none; font-size:20px; cursor:pointer; }
+
+    /* Hidden editor for exams */
+    #editContainer { display:none; position:fixed; top:60px; left:50%; transform:translateX(-50%); width:90%; max-width:720px; background:#fff; border:2px solid #ccc; padding:18px; z-index:2001; border-radius:8px; box-shadow:0 30px 80px rgba(0,0,0,0.25); }
+
+    /* small responsive tweaks */
+    @media (max-width:720px) {
+      .hero { padding:60px 16px; }
+      .service-card { width:46%; }
+      .extra-images img { width:48%; }
+      .exam-marquee { height:140px; }
     }
-    #chatbot-button {
-      bottom: 90px;
-      right: 20px;
-      background: var(--accent);
-      color: white;
-    }
-    #whatsapp-button {
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-    }
-    footer {
-      background: #003f88;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-      margin-top: 50px;
-    }
-.#exams {
-  margin: 50px 0;
-  display: flex;
-  justify-content: center;
-}
-
-#exams {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.exam-highlight {
-  max-width: 900px;
-  width: 100%;
-  background: linear-gradient(135deg, #fff3cd, #ffeeba);
-  border: 3px dashed #ff9800;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  padding: 30px;
-  text-align: center;
-  animation: pulseHighlight 3s infinite;
-}
-
-@keyframes pulseHighlight {
-  0% { box-shadow: 0 0 0 rgba(0, 0, 0, 0.1); }
-  50% { box-shadow: 0 0 20px rgba(255, 152, 0, 0.4); }
-  100% { box-shadow: 0 0 0 rgba(0, 0, 0, 0.1); }
-}
-
-.exam-highlight h2 {
-  font-size: 2rem;
-  color: #d35400;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-.exam-marquee {
-  height: 120px;
-  overflow: hidden;
-  position: relative;
-  background: #fff8e1;
-  padding: 15px;
-  font-size: 18px;
-  border-left: 5px solid #f39c12;
-  animation: scrollExams 10s linear infinite;
-}
-
-#examContent {
-  display: flex;
-  flex-direction: column;
-  animation: scrollExams 10s linear infinite;
-}
-
-@keyframes scrollExams {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
-
-
-
   </style>
 </head>
+
 <body>
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <i class="fas fa-globe favicon" aria-hidden="true"></i>
+      <div>
+        <h1>Delhi Cyber Cafe</h1>
+        <div style="font-size:12px; color:var(--muted)">B-225/4 Street No-7, Ashok Nagar, Shahdara, Delhi 110093</div>
+      </div>
+    </div>
 
-<header>
-  <i class="fas fa-globe"></i>
-  <h1>Delhi Cyber Cafe</h1>
-</header>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <!-- Admin open button (optional) -->
+      <button class="admin-open" onclick="toggleAdmin()" title="Open admin panel">Admin</button>
+    </div>
+  </header>
 
-<nav>
-  <a href="#about"><i class="fas fa-info-circle"></i> About</a>
-  <a href="#services"><i class="fas fa-concierge-bell"></i> Services</a>
-  <a href="#exams"><i class="fas fa-book-open"></i> Exams</a>
-  <a href="#live-feed"><i class="fas fa-broadcast-tower"></i> Live Feed</a>
-  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-</nav>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+    <a href="#services"><i class="fas fa-concierge-bell"></i> Services</a>
+    <a href="#exams"><i class="fas fa-book-open"></i> Exams</a>
+    <a href="#live-feed"><i class="fas fa-broadcast-tower"></i> Live Feed</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="food-licence.html"><i class="fas fa-utensils"></i> Food Licence</a>
+  </nav>
 
-<div class="hero">
-  <div class="hero-content">
+  <!-- HERO -->
+  <div class="hero" role="banner" aria-label="Delhi Cyber Cafe hero">
     <h2>Explore Smart Digital Services</h2>
     <p>Fast, Affordable & Hassle-Free Government Services in One Place</p>
-    <a href="#services">Explore Services</a>
+    <a class="cta" href="#services">Explore Services</a>
   </div>
-</div>
 
-<section id="about" class="section">
-  <h2>About Us</h2>
-  <p style="text-align: center;">Welcome to Delhi Cyber Cafe, your one-stop destination for high-speed internet, printing, scanning, and more. Open daily from 9 AM to 9 PM.</p>
-</section>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p style="text-align:center;">Welcome to Delhi Cyber Cafe, your one-stop destination for high-speed internet, printing, scanning, online form filling and government service assistance. Open daily from 9 AM to 9 PM.</p>
+  </section>
 
-<section class="section" id="exam-links">
-  <h2>🔗 Important Recruitment & Exam Links 2025</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-    <a href="https://wb.gov.in/assistant-teacher-2025" style="background: #28a745; color: white; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-      WB Assistant Teacher Recruitment 2025 (35726 Post)
-    </a>
-    <a href="https://ssc.nic.in/mts-2025" style="background: #0015ff; color: white; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-      SSC MTS Recruitment 2025 Apply
-    </a>
-    <a href="https://rrb.gov.in/technician-2025" style="background: #8b0000; color: white; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-      Railway RRB Technician Recruitment
-    </a>
-    <a href="https://indiapost.gov.in/gds-5th-merit-2025" style="background: #ff8800; color: white; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-      India Post GDS Merit List 2025
-    </a>
-    <a href="https://jeecup.admissions.nic.in" style="background: #ff2020; color: white; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-      UP Polytechnic JEECUP Counseling 2025
-    </a>
-    <a href="https://up.gov.in/lt-grade-teacher-2025" style="background: #b000b0; color: white; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">
-      UP LT Grade Teacher Notification 2025
-   <a href="https://edudel.nic.in/CMSHRIApp/Home.aspx" style="background: #b000b0; color: white; padding: 15px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">CM SHRI SCHOOL ADMISSION FORM 2025</a>
- </div>
-</section>
+  <!-- EXAMS (highlight + marquee) -->
+  <section id="exams" class="section">
+    <h2 style="text-align:center; color:var(--primary)">🔔 Important Recruitment & Exam Updates</h2>
 
-    
+    <div class="exam-highlight" aria-hidden="false" role="region" aria-label="Important exams">
+      <h3>Latest Notifications & Openings</h3>
+      <div class="exam-marquee" aria-live="polite">
+        <div id="examContent" aria-hidden="false">
+          <!-- content injected by JS (duplicated for smooth scroll) -->
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:10px;">
+        <small style="color:var(--muted)">Press <strong>Ctrl + E</strong> to edit the list (local-only).</small>
+      </div>
+    </div>
+  </section>
 
-<section id="services" class="section">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="service-card" data-price="₹6/page"><i class="fas fa-print"></i><div><strong>Printing (B/W)</strong></div></div>
-    <div class="service-card" data-price="₹10/page"><i class="fas fa-print"></i><div><strong>Printing (Color)</strong></div></div>
-    <div class="service-card" data-price="₹5/page"><i class="fas fa-copy"></i><div><strong>Photocopy</strong></div></div>
-    <div class="service-card" data-price="₹5/page"><i class="fas fa-copy"></i><div><strong>Scanning</strong></div></div>
-    <div class="service-card" data-price="₹30"><i class="fas fa-camera"></i><div><strong>Passport Photo</strong></div></div>
-    <div class="service-card" data-price="₹50"><i class="fas fa-file-alt"></i><div><strong>Form Filling</strong></div></div>
-    <div class="service-card" data-price="₹20"><i class="fas fa-globe"></i><div><strong>Online Applications</strong></div></div>
-    <div class="service-card" data-price="₹100"><i class="fas fa-train"></i><div><strong>Train Ticket Booking</strong></div></div>
-    <div class="service-card" data-price="₹100"><i class="fas fa-id-card"></i><div><strong>PAN/Aadhar/Voter Forms</strong></div></div>
-    <div class="service-card" data-price="₹200"><i class="fas fa-passport"></i><div><strong>Passport Assistance</strong></div></div>
-    <div class="service-card" data-price="Free"><i class="fas fa-download"></i><div><strong>PDF Form Downloads</strong></div></div>
-    <div class="service-card" data-price="₹10–₹20"><i class="fas fa-motorcycle"></i><div><strong>Print Home Delivery</strong></div></div>
+  <!-- Inline Quick Links -->
+  <section id="exam-links" class="section">
+    <h2>Quick Apply Links (2025)</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
+      <a href="https://wb.gov.in/assistant-teacher-2025" target="_blank" rel="noreferrer" style="background:#28a745;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;">WB Assistant Teacher 2025</a>
+      <a href="https://ssc.nic.in/mts-2025" target="_blank" rel="noreferrer" style="background:#0015ff;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;">SSC MTS 2025</a>
+      <a href="https://rrb.gov.in/technician-2025" target="_blank" rel="noreferrer" style="background:#8b0000;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;">RRB Technician</a>
+      <a href="https://indiapost.gov.in/gds-5th-merit-2025" target="_blank" rel="noreferrer" style="background:#ff8800;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;">India Post GDS Merit 2025</a>
+      <a href="https://jeecup.admissions.nic.in" target="_blank" rel="noreferrer" style="background:#ff2020;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;">JEECUP Counseling</a>
+      <a href="https://up.gov.in/lt-grade-teacher-2025" target="_blank" rel="noreferrer" style="background:#b000b0;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;">UP LT Grade Teacher 2025</a>
+      <a href="https://edudel.nic.in/CMSHRIApp/Home.aspx" target="_blank" rel="noreferrer" style="background:#0073e6;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;">CM SHRI School Admission</a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <h2>Our Services</h2>
+    <div class="services" aria-label="Service list">
+      <div class="service-card" data-price="₹6/page"><i class="fas fa-print"></i><div><strong>Printing (B/W)</strong><div style="color:var(--muted)">₹6/page</div></div></div>
+      <div class="service-card" data-price="₹10/page"><i class="fas fa-print"></i><div><strong>Printing (Color)</strong><div style="color:var(--muted)">₹10/page</div></div></div>
+      <div class="service-card" data-price="₹5/page"><i class="fas fa-copy"></i><div><strong>Photocopy</strong><div style="color:var(--muted)">₹5/page</div></div></div>
+      <div class="service-card" data-price="₹5/page"><i class="fas fa-scanner"></i><div><strong>Scanning</strong><div style="color:var(--muted)">₹5/page</div></div></div>
+      <div class="service-card" data-price="₹30"><i class="fas fa-camera"></i><div><strong>Passport Photo</strong><div style="color:var(--muted)">₹30</div></div></div>
+      <div class="service-card" data-price="₹50"><i class="fas fa-file-alt"></i><div><strong>Form Filling</strong><div style="color:var(--muted)">₹50</div></div></div>
+      <div class="service-card" data-price="₹20"><i class="fas fa-globe"></i><div><strong>Online Applications</strong><div style="color:var(--muted)">₹20</div></div></div>
+      <div class="service-card" data-price="₹100"><i class="fas fa-train"></i><div><strong>Train Ticket Booking</strong><div style="color:var(--muted)">₹100</div></div></div>
+      <div class="service-card" data-price="₹100"><i class="fas fa-id-card"></i><div><strong>PAN/Aadhaar/Voter Forms</strong><div style="color:var(--muted)">₹100</div></div></div>
+      <div class="service-card" data-price="₹200"><i class="fas fa-passport"></i><div><strong>Passport Assistance</strong><div style="color:var(--muted)">₹200</div></div></div>
+      <div class="service-card" data-price="Free"><i class="fas fa-download"></i><div><strong>PDF Form Downloads</strong><div style="color:var(--muted)">Free</div></div></div>
+      <div class="service-card" data-price="₹10–₹20"><i class="fas fa-motorcycle"></i><div><strong>Print Home Delivery</strong><div style="color:var(--muted)">₹10–₹20</div></div></div>
+    </div>
+  </section>
+
+  <!-- FORM GUIDES & DOWNLOADS -->
+  <section class="section" id="guides">
+    <h2>Guides & Help</h2>
+
+    <div class="guides-grid">
+      <a class="guide-card" href="guides/aadhar-card.html"><img src="https://img.icons8.com/color/96/aadhaar-card.png" alt="Aadhaar guide" style="max-width:80px"><h3>Aadhaar Update Guide</h3><p style="color:var(--muted)">Step-by-step to update Aadhaar details.</p></a>
+
+      <a class="guide-card" href="guides/pan-card.html"><img src="https://img.icons8.com/color/96/permanent-account-number-card.png" alt="PAN guide" style="max-width:80px"><h3>PAN Card Guide</h3><p style="color:var(--muted)">Apply for PAN or correct details.</p></a>
+
+      <a class="guide-card" href="guides/voter-id.html"><img src="https://img.icons8.com/color/96/voting.png" alt="Voter card" style="max-width:80px"><h3>Voter ID Guide</h3><p style="color:var(--muted)">Register or update voter ID.</p></a>
+
+      <a class="guide-card" href="guides/driving-license.html"><img src="https://img.icons8.com/color/96/driving-license.png" alt="Driving license" style="max-width:80px"><h3>Driving License</h3><p style="color:var(--muted)">Renewals & appointments.</p></a>
+
+      <a class="guide-card" href="guides/income-certificate.html"><img src="https://img.icons8.com/color/96/income.png" alt="Income certificate" style="max-width:80px"><h3>Income Certificate</h3><p style="color:var(--muted)">How to apply online.</p></a>
+    </div>
+
+    <div class="downloads" style="margin-top:18px;">
+      <a href="forms/pan_card_form.pdf" download>🆔 PAN Card Application</a>
+      <a href="forms/aadhar_update_form.pdf" download>📝 Aadhaar Update</a>
+      <a href="forms/ladli_form.pdf" download>📝 Ladli Yojana</a>
+      <a href="forms/income_certificate_form.pdf" download>📝 Income Certificate</a>
+    </div>
+  </section>
+
+  <!-- EXTRA IMAGES -->
+  <section id="extra-images" class="section">
+    <h2>Photos & Documents (Examples)</h2>
+    <div class="extra-images" aria-label="Extra photos">
+      <img src="images/birth.jpg" alt="Birth certificate sample">
+      <img src="images/mcd.jpg" alt="MCD document sample">
+      <img src="images/water.jpg" alt="Water bill sample">
+      <img src="images/housetax.jpg" alt="House tax sample">
+      <img src="images/learning.jpg" alt="Learning program">
+      <img src="images/licence.jpg" alt="License">
+      <img src="images/electricity.jpg" alt="Electricity bill">
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+    <p>
+      <strong>Delhi Cyber Cafe</strong><br />
+      B-225/4 Street No-7, Ashok Nagar, Shahdara, Delhi 110093<br />
+      <strong>Phone:</strong> <a href="tel:+918076405103">8076405103</a><br />
+      <strong>Hours:</strong> 9 AM - 9 PM Daily
+    </p>
+
+    <div style="max-width:900px; margin:14px auto;">
+      <iframe
+        width="100%"
+        height="320"
+        style="border:0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=B-225/4+Ashok+Nagar+Shahdara+Delhi+110093&output=embed"
+        title="Delhi Cyber Cafe Location"></iframe>
+    </div>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="section" style="background:#f8f9ff;">
+    <h2 style="text-align:center">At a Glance</h2>
+    <div class="at-glance">
+      <div style="min-width:140px;"><i class="fas fa-users fa-2x" style="color:var(--primary)"></i><p><strong>10,000+</strong><br>Happy Customers</p></div>
+      <div style="min-width:140px;"><i class="fas fa-file-alt fa-2x" style="color:var(--primary)"></i><p><strong>5000+</strong><br>Forms Filled</p></div>
+      <div style="min-width:140px;"><i class="fas fa-wifi fa-2x" style="color:var(--primary)"></i><p><strong>High-Speed</strong><br>Internet</p></div>
+      <div style="min-width:140px;"><i class="fas fa-clock fa-2x" style="color:var(--primary)"></i><p><strong>12 Hours</strong><br>Daily Service</p></div>
+    </div>
+  </section>
+
+  <!-- FEEDBACK -->
+  <section class="section">
+    <h2>Customer Feedback</h2>
+    <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:12px;">
+      <blockquote>"Fast service and very helpful staff. Best cyber cafe in Shahdara!"<br><small>– Aarti S.</small></blockquote>
+      <blockquote>"Got my passport form filled and printed in 10 mins. Highly recommended."<br><small>– Rahul M.</small></blockquote>
+      <blockquote>"Affordable printing and always reliable."<br><small>– Neha G.</small></blockquote>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2>FAQs</h2>
+    <div style="max-width:900px;margin:0 auto;">
+      <p><strong>Q: Do you provide online form filling for government jobs?</strong><br>A: Yes! We specialize in government forms including SSC, UPSC, JEECUP and more.</p>
+      <p><strong>Q: Is color printing available?</strong><br>A: Absolutely! We offer both B/W and color printing at affordable rates.</p>
+      <p><strong>Q: Do you accept digital payments?</strong><br>A: Yes, we accept UPI, Paytm, Google Pay, and cash.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Delhi Cyber Cafe. All rights reserved. Phone: <a href="tel:+918076405103" style="color:#fff; text-decoration:underline;">8076405103</a></p>
+  </footer>
+
+  <!-- Floating Chat & WhatsApp -->
+  <button id="chatbot-button" title="Chat with us">💬</button>
+  <a id="whatsapp-button" href="https://wa.me/918076405103?text=Hello%20Delhi%20Cyber%20Cafe%2C%20I%20have%20a%20query." target="_blank" title="Chat on WhatsApp" rel="noreferrer">
+    <i class="fab fa-whatsapp" style="font-size:20px;"></i>
+  </a>
+
+  <!-- Hidden Exam Editor (toggle with Ctrl+E) -->
+  <div id="editContainer" aria-hidden="true">
+    <h3>Edit Government Exam List</h3>
+    <textarea id="examEditor" rows="10" style="width:100%; padding:10px; font-family:monospace;"></textarea>
+    <div style="margin-top:10px; display:flex; gap:8px;">
+      <button onclick="saveExams()">💾 Save Exams</button>
+      <button onclick="document.getElementById('editContainer').style.display='none'">❌ Close</button>
+    </div>
   </div>
-</section>
 
-<section class="seo-content">
-  <h2>Best Cyber Cafe in Shahdara, Delhi</h2>
-  <p>Delhi Cyber Cafe offers reliable and fast online form filling, government exam form submission, and digital services. Conveniently located in Shahdara, we provide affordable solutions for students and professionals looking for hassle-free paperwork.</p>
-  <p>Looking for an exam form center near you? Visit Delhi Cyber Cafe in Shahdara today!</p>
-</section>
+  <!-- Admin Panel (Daily Income) -->
+  <div id="adminPanel" aria-hidden="true">
+    <div class="panel" role="dialog" aria-modal="true" aria-label="Admin Panel - Daily Income">
+      <button class="close-btn" onclick="toggleAdmin()">✖</button>
+      <h2>Admin Panel - Daily Income</h2>
 
-<section class="section" id="pdf-forms">
-  <h2>📄 Download PDF Forms</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <a href="forrms/pan_card_form.pdf" download style="background: #fff; padding: 15px 20px; border: 2px solid #28a745; border-radius: 8px; text-decoration: none; color: #28a745; font-weight: bold;">
-      🆔 PAN Card Application
-    </a>
-    <a href="forrms/aadhar_update_form.pdf" download style="background: #fff; padding: 15px 20px; border: 2px solid #dc3545; border-radius: 8px; text-decoration: none; color: #dc3545; font-weight: bold;">
-      📝 Aadhar Update Form
-    </a>
- <a href="forrms/ladli_form.pdf" download style="background: #fff; padding: 15px 20px; border: 2px solid #dc3545; border-radius: 8px; text-decoration: none; color: #dc3545; font-weight: bold;">
-      📝 Ladli Yojana Form
-    </a>
+      <form id="incomeForm" onsubmit="addEntry(event)" style="margin-top:8px;">
+        <label>Service:</label>
+        <select id="service">
+          <option>Printout</option>
+          <option>Form</option>
+          <option>PAN Card</option>
+          <option>Photocopy</option>
+          <option>Update</option>
+          <option>Passport</option>
+          <option>Delivery</option>
+        </select>
+        <br><br>
+
+        <label>Amount (₹):</label>
+        <input type="number" id="amount" required min="0" style="width:100px">
+        <br><br>
+
+        <label>Note (optional):</label>
+        <input type="text" id="note" placeholder="Optional note">
+        <br><br>
+
+        <button type="submit">Add Entry</button>
+      </form>
+
+      <hr style="margin:12px 0;">
+      <h3>Today's Total: ₹<span id="todayTotal">0</span></h3>
+      <h4>This Week: ₹<span id="weekTotal">0</span></h4>
+
+      <div style="display:flex; gap:8px; margin-top:10px;">
+        <button onclick="exportCSV()">📥 Export CSV</button>
+        <button onclick="clearData()">🗑 Clear All (⚠)</button>
+      </div>
+    </div>
   </div>
-</section>
 
-<section class="section" id="extra-images">
-  <h2>Extra Photos</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-    <img src="images/birth.jpg" alt="Extra Image 1" style="width: 200px; border-radius: 10px;">
-    <img src="images/mcd.jpg" alt="Extra Image 2" style="width: 200px; border-radius: 10px;">
-    <img src="images/water.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
-    <img src="images/housetax.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
-    <img src="images/learning.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
-    <img src="images/licence.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
-     <img src="images/electricity.jpg" alt="Extra Image 3" style="width: 200px; border-radius: 10px;">
-  </div>
-</section>
+  <script>
+    /* ====== Exam marquee content (with local editor) ====== */
+    const defaultExams = [
+      "SSC CGL 2025 Notification Released",
+      "UPSC Prelims 2025 Form Out Now",
+      "IBPS Clerk Recruitment 2025 Open",
+      "CTET January 2025 Online Form Available",
+      "CM SHRI ADMISSION FORM CLASS 6 TO 8",
+      "Delhi Police Constable Form 2025 Active"
+    ];
 
-<section id="contact" class="section">
-  <h2>Contact Us</h2>
-  <p style="text-align: center;">
-    <strong>Address:</strong> B-225/4 Street No-7, Ashok Nagar, Shahdara, Delhi 110093<br />
-    <strong>Phone:</strong> 8076405103<br />
-    <strong>Hours:</strong> 9 AM - 9 PM Daily
-  </p>
-</section>
+    function loadExams(){
+      const stored = localStorage.getItem('examList');
+      const examList = stored ? JSON.parse(stored) : defaultExams;
+      const contentDiv = document.getElementById('examContent');
+      if(!contentDiv) return;
+      // Duplicate list to allow smooth infinite scroll
+      const repeated = examList.concat(examList);
+      contentDiv.innerHTML = repeated.map(item => `<p style="margin:0;padding:6px 0;">${escapeHtml(item)}</p>`).join('');
+      // populate editor
+      const editor = document.getElementById('examEditor');
+      if(editor) editor.value = examList.join('\n');
+    }
 
-<section class="section" style="background: #e9f0fb;">
-  <h2>At a Glance</h2>
-  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; text-align: center;">
-    <div><i class="fas fa-users fa-2x" style="color: var(--primary);"></i><p><strong>10,000+</strong><br>Happy Customers</p></div>
-    <div><i class="fas fa-file-alt fa-2x" style="color: var(--primary);"></i><p><strong>5000+</strong><br>Forms Filled</p></div>
-    <div><i class="fas fa-wifi fa-2x" style="color: var(--primary);"></i><p><strong>High-Speed</strong><br>Internet Access</p></div>
-    <div><i class="fas fa-clock fa-2x" style="color: var(--primary);"></i><p><strong>12 Hours</strong><br>Daily Service</p></div>
-  </div>
-</section>
+    function saveExams(){
+      const editor = document.getElementById('examEditor');
+      if(!editor) return;
+      const updated = editor.value.split('\n').map(s => s.trim()).filter(Boolean);
+      localStorage.setItem('examList', JSON.stringify(updated));
+      loadExams();
+      alert('✅ Exam list updated (saved locally).');
+      document.getElementById('editContainer').style.display = 'none';
+    }
 
-<section class="section">
-  <h2>Why Choose Delhi Cyber Cafe?</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
-    <div><i class="fas fa-shield-alt" style="color: var(--primary);"></i> <strong>Secure Systems</strong><p>All systems are regularly maintained and protected for safe browsing.</p></div>
-    <div><i class="fas fa-user-clock" style="color: var(--primary);"></i> <strong>Fast Service</strong><p>We value your time. Get your work done without delays.</p></div>
-    <div><i class="fas fa-rupee-sign" style="color: var(--primary);"></i> <strong>Affordable Rates</strong><p>Reasonable pricing with no hidden charges.</p></div>
-    <div><i class="fas fa-laptop" style="color: var(--primary);"></i> <strong>Modern Facilities</strong><p>Latest software and hardware ready for all your needs.</p></div>
-  </div>
-</section>
-
-<section class="section" style="background: #fefefe;">
-  <h2>Customer Feedback</h2>
-  <div style="display: flex; flex-direction: column; gap: 20px; max-width: 700px; margin: auto;">
-    <blockquote>"Fast service and very helpful staff. Best cyber cafe in Shahdara!"<br><small>– Aarti S.</small></blockquote>
-    <blockquote>"Got my passport form filled and printed in 10 mins. Highly recommended."<br><small>– Rahul M.</small></blockquote>
-    <blockquote>"Affordable printing and always reliable."<br><small>– Neha G.</small></blockquote>
-  </div>
-</section>
-<p>We provide fast and affordable online services at our cyber cafe in Shahdara, including online form filling and exam form submission for Delhi residents.</p>
-
-
-<section class="section">
-  <h2>FAQs</h2>
-  <div style="max-width: 800px; margin: auto;">
-    <p><strong>Q: Do you provide online form filling for government jobs?</strong><br>A: Yes! We specialize in government forms including SSC, UPSC, and more.</p>
-    <p><strong>Q: Is color printing available?</strong><br>A: Absolutely! We offer both B/W and color printing at affordable rates.</p>
-    <p><strong>Q: Do you accept digital payments?</strong><br>A: Yes, we accept UPI, Paytm, Google Pay, and cash.</p>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2025 Delhi Cyber Cafe. All rights reserved.</p>
-</footer>
-
-<button id="chatbot-button" title="Chat with us">💬</button>
-<a href="https://wa.me/918076405103?text=Hello%20Delhi%20Cyber%20Cafe%2C%20I%20have%20a%20query." target="_blank" id="whatsapp-button" title="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- Admin Panel -->
-<div id="adminPanel" style="display:none; position:fixed; inset:0; background:#000000aa; z-index:9999; justify-content:center; align-items:center;">
-  <div style="background:#fff; padding:20px; border-radius:10px; width:90%; max-width:500px; box-shadow:0 0 20px rgba(0,0,0,0.3); position:relative;">
-    <button onclick="toggleAdmin()" style="position:absolute; top:10px; right:10px;">✖</button>
-    <h2 style="margin-bottom:10px; color:#333;">Admin Panel - Daily Income</h2>
-
-    <form onsubmit="addEntry(event)">
-      <label>Service:</label>
-      <select id="service">
-        <option>Printout</option>
-        <option>Form</option>
-        <option>PAN Card</option>
-        <option>Photocopy</option>
-        <option>Update</option>
-      </select><br><br>
-
-      <label>Amount (₹):</label>
-      <input type="number" id="amount" required><br><br>
-
-      <label>Note (optional):</label>
-      <input type="text" id="note"><br><br>
-
-      <button type="submit">Add Entry</button>
-    </form>
-
-    <hr>
-    <h3>Today's Total: ₹<span id="todayTotal">0</span></h3>
-    <h4>This Week: ₹<span id="weekTotal">0</span></h4>
-    <button onclick="exportCSV()">📥 Export CSV</button>
-    <button onclick="clearData()">🗑 Clear All (⚠)</button>
-  </div>
-</div>
-
-<script>
-  const defaultExams = [
-    "SSC CGL 2025 Notification Released",
-    "UPSC Prelims 2025 Form Out Now",
-    "IBPS Clerk Recruitment 2025 Open",
-    "CTET January 2025 Online Form Available",
-    "CM SHRI ADMISSION FORM CLASS 6 TO 8",
-    "Delhi Police Constable Form 2025 Active"
-    
-  ];
-function loadExams() {
-  const stored = localStorage.getItem('examList');
-  const examList = stored ? JSON.parse(stored) : defaultExams;
-  const contentDiv = document.getElementById('examContent');
-  const editor = document.getElementById('examEditor');
-
-  if (contentDiv) {
-    // Duplicate exam list to allow infinite scroll effect
-    const repeatedList = examList.concat(examList);
-    contentDiv.innerHTML = repeatedList.map(item => `<p>${item}</p>`).join('');
-  }
-
-  if (editor) {
-    editor.value = examList.join('\n');
-  }
-}
-
-  function saveExams() {
-    const editor = document.getElementById('examEditor');
-    const updatedList = editor.value.split('\n').filter(Boolean);
-    localStorage.setItem('examList', JSON.stringify(updatedList));
-    loadExams();
-    alert("✅ Exam list updated!");
-  }
-
-  // ✅ Wait until entire page loads before attaching shortcut
-  window.onload = function () {
-    loadExams();
-
-    document.addEventListener('keydown', function (e) {
-      if (e.ctrlKey && (e.key === 'e' || e.key === 'E')) {
+    // keyboard shortcut to toggle editor: Ctrl+E
+    document.addEventListener('keydown', function(e){
+      if(e.ctrlKey && (e.key === 'e' || e.key === 'E')){
         e.preventDefault();
-        const editorBox = document.getElementById('editContainer');
-        if (editorBox) {
-          editorBox.style.display = (editorBox.style.display === 'none' || editorBox.style.display === '') ? 'block' : 'none';
-        }
+        const box = document.getElementById('editContainer');
+        if(box) box.style.display = (box.style.display === 'block') ? 'none' : 'block';
       }
     });
-  };
-</script>
-<!-- Hidden Exam Editor -->
-<div id="editContainer" style="display:none; position:fixed; top:50px; left:50%; transform:translateX(-50%); width:90%; max-width:600px; background:white; border:2px solid #ccc; padding:20px; z-index:9999; box-shadow:0 0 15px rgba(0,0,0,0.3);">
-  <h3>Edit Government Exam List</h3>
-  <textarea id="examEditor" rows="10" style="width:100%;"></textarea>
-  <br><br>
-  <button onclick="saveExams()">💾 Save Exams</button>
-  <button onclick="document.getElementById('editContainer').style.display='none'">❌ Close</button>
-</div>
 
+    // small helper to avoid XSS when injecting into innerHTML
+    function escapeHtml(str) {
+      return str.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+    }
+
+    window.addEventListener('load', function(){
+      loadExams();
+      updateTotals(); // admin totals
+    });
+
+    /* ====== Chatbot button simple demo (can replace with real chat later) ====== */
+    document.getElementById('chatbot-button').addEventListener('click', function(){
+      alert('Hello! For quick queries, message us on WhatsApp (bottom-right) or call 8076405103.');
+    });
+
+    /* ====== Admin panel / daily income storage ====== */
+    function toggleAdmin(){
+      const panel = document.getElementById('adminPanel');
+      if(!panel) return;
+      if(panel.style.display === 'flex') {
+        panel.style.display = 'none';
+        panel.setAttribute('aria-hidden','true');
+      } else {
+        panel.style.display = 'flex';
+        panel.setAttribute('aria-hidden','false');
+      }
+    }
+
+    function getEntries(){
+      try {
+        const raw = localStorage.getItem('dailyIncomeEntries');
+        return raw ? JSON.parse(raw) : [];
+      } catch(e){ return []; }
+    }
+
+    function saveEntries(list){
+      localStorage.setItem('dailyIncomeEntries', JSON.stringify(list));
+    }
+
+    function addEntry(e){
+      if(e) e.preventDefault();
+      const service = document.getElementById('service').value;
+      const amount = parseFloat(document.getElementById('amount').value || 0);
+      const note = document.getElementById('note').value || '';
+      if(isNaN(amount) || amount < 0){ alert('Enter valid amount'); return; }
+      const entries = getEntries();
+      entries.push({ service, amount, note, timestamp: new Date().toISOString() });
+      saveEntries(entries);
+      updateTotals();
+      // clear inputs
+      document.getElementById('amount').value = '';
+      document.getElementById('note').value = '';
+      alert('✅ Entry added');
+    }
+
+    function updateTotals(){
+      const entries = getEntries();
+      const today = new Date();
+      let todayTotal = 0;
+      let weekTotal = 0; // last 7 days
+      entries.forEach(en => {
+        const d = new Date(en.timestamp);
+        // same date check
+        if(d.getFullYear() === today.getFullYear() && d.getMonth() === today.getMonth() && d.getDate() === today.getDate()){
+          todayTotal += Number(en.amount || 0);
+        }
+        const diffMs = today - d;
+        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        if(diffDays >= 0 && diffDays <= 6) weekTotal += Number(en.amount || 0);
+      });
+      document.getElementById('todayTotal').innerText = Math.round(todayTotal);
+      document.getElementById('weekTotal').innerText = Math.round(weekTotal);
+    }
+
+    function exportCSV(){
+      const entries = getEntries();
+      if(entries.length === 0){ alert('No entries to export'); return; }
+      const header = ['Service','Amount','Note','Timestamp'];
+      const rows = entries.map(e => [e.service, e.amount, `"${(e.note || '').replaceAll('"','""')}"`, e.timestamp]);
+      const csv = [header.join(','), ...rows.map(r => r.join(','))].join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `daily_income_${new Date().toISOString().slice(0,10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function clearData(){
+      if(confirm('Are you sure you want to clear all daily income entries? This cannot be undone.')){
+        localStorage.removeItem('dailyIncomeEntries');
+        updateTotals();
+        alert('✅ All entries cleared.');
+      }
+    }
+
+    /* Optional: keep admin totals updated if user stays on page */
+    setInterval(updateTotals, 30000);
+  </script>
 </body>
-</html>  
+</html>
